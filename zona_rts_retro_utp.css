@@ -495,3 +495,247 @@
         font-size: 1.05rem;
       }
     }
+
+    /* Animación Fade In - Aparición suave desde transparente */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animación Pulse - Efecto de pulso sutil */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(135, 255, 60, 0.4);
+  }
+  50% {
+    transform: scale(1.03);
+    box-shadow: 0 0 0 8px rgba(135, 255, 60, 0);
+  }
+}
+
+/* Animación Slide Up - Deslizamiento desde abajo */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animación Glow - Efecto de brillo para elementos destacados */
+@keyframes glow {
+  0%, 100% {
+    text-shadow: 0 0 10px rgba(135, 255, 60, 0.3);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(135, 255, 60, 0.6),
+                 0 0 30px rgba(135, 255, 60, 0.4);
+  }
+}
+
+/*    APLICACIÓN DE ANIMACIONES A ELEMENTOS ESPECÍFICOS    */
+
+/* Fade In en Hero Section */
+.hero {
+  animation: fadeIn 0.8s ease-out;
+}
+
+/* Pulse en Badge del Logo */
+.brand-badge {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* Slide Up en Cards con retraso escalonado */
+.card:nth-child(1) {
+  animation: slideUp 0.6s ease-out 0.1s backwards;
+}
+
+.card:nth-child(2) {
+  animation: slideUp 0.6s ease-out 0.2s backwards;
+}
+
+.card:nth-child(3) {
+  animation: slideUp 0.6s ease-out 0.3s backwards;
+}
+
+/* Glow en títulos hero con span verde */
+.hero h2 span {
+  animation: glow 3s ease-in-out infinite;
+}
+
+/*    MEJORAS EN TRANSICIONES EXISTENTES    */
+
+/* Mejorar transición de botones */
+.btn {
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, var(--green), #cfff9b);
+  box-shadow: 0 8px 20px rgba(135, 255, 60, 0.3);
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Transición suave en cards al hacer hover */
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-30px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+/* Transición en stats al hacer hover */
+.stat {
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.stat:hover {
+  transform: scale(1.05);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* Transición en hero-card */
+.hero-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-card:hover {
+  transform: translateY(-30px);
+  box-shadow: 0 25px 60px rgba(135, 255, 60, 0.15);
+}
+
+/* Transición en panel multimedia */
+.panel {
+  transition: transform 0.3s ease;
+}
+
+.panel:hover {
+  transform: translateY(-2px);
+}
+
+/*    EFECTOS ADICIONALES */
+
+/* Efecto de focus mejorado para accesibilidad */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: 2px;
+}
+
+/* Animación sutil en enlaces al hacer hover */
+a {
+  transition: color 0.25s ease;
+}
+
+/* Transición en tags */
+.tag {
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.tag:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: scale(1.05);
+}
+
+/* Transición en eyebrow badge */
+.eyebrow {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.eyebrow:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(135, 255, 60, 0.3);
+}
+
+/* MEJORA DEL AVANCE03 */
+/* ── Botón hamburguesa ─────────────────────────────────────── */
+#btn-hamburguesa {
+  display: none;
+  background: none;
+  border: 2px solid var(--green, #87ff3c);
+  color: var(--green, #87ff3c);
+  font-size: 1.4rem;
+  padding: 6px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+/* ── Mensajes de error bajo cada campo ─────────────────────── */
+.error-campo {
+  display: none;
+  color: #ff4040;
+  font-size: 0.82rem;
+  margin-top: 4px;
+}
+
+/* ── Mensaje de éxito al enviar el formulario ──────────────── */
+#mensaje-exito {
+  background: #1a3a1a;
+  border: 1px solid #87ff3c;
+  color: #87ff3c;
+  padding: 12px 18px;
+  border-radius: 6px;
+  margin-bottom: 18px;
+  font-size: 0.95rem;
+}
+
+#mensaje-exito-abajo {
+  background: #1a3a1a;
+  border: 1px solid #87ff3c;
+  color: #87ff3c;
+  padding: 12px 18px;
+  border-radius: 6px;
+  margin-bottom: 18px;
+  font-size: 0.95rem;
+}
+
+/* ── Responsive: mostrar hamburguesa en móvil ──────────────── */
+@media (max-width: 560px) {
+
+  #btn-hamburguesa {
+    display: block;
+  }
+
+  /* El nav se oculta por defecto en móvil */
+  nav ul#nav-menu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    gap: 0;
+  }
+
+  /* Cuando el JS agrega la clase "nav-abierto", se muestra */
+  nav ul#nav-menu.nav-abierto {
+    display: flex;
+  }
+
+  nav ul#nav-menu li a {
+    display: block;
+    padding: 12px 16px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+}
