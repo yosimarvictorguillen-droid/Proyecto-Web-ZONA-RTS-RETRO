@@ -36,7 +36,7 @@ window.onload = function() {
     var juego      = document.getElementById("juego").value;
     var plataforma = document.getElementById("plataforma").value;
     var modo       = document.querySelector('input[name="modo"]:checked');
-
+    var intereses = document.querySelectorAll('input[name="interes[]"]:checked');
     limpiarErrores();
     var esValido = true;
 
@@ -67,7 +67,11 @@ window.onload = function() {
       mostrarError("error-modo", "Seleccione el modo que más disfruta.");
       esValido = false;
     }
-
+    // ── 4.1 VALIDAR CHECKBOX "INTERESES" (opcional, agregar dentro del onsubmit)
+    if (intereses.length === 0) {
+      mostrarError("error-interes", "Seleccione al menos un interés.");
+      esValido = false;
+    }
     if (esValido) {
       formulario.reset();
 
@@ -86,7 +90,23 @@ window.onload = function() {
       }, 8000);
     }
   };
+  // ── 6. FILTRO DINÁMICO DE TABLA ────────────────────────────
+  var inputBuscar = document.getElementById("buscar-tabla");
+  if (inputBuscar) {
+    inputBuscar.oninput = function() {
+      var texto = inputBuscar.value.toLowerCase();
+      var filas = document.querySelectorAll("#tabla tbody tr");
 
+      for (var i = 0; i < filas.length; i++) {
+        var textoFila = filas[i].textContent.toLowerCase();
+        if (textoFila.indexOf(texto) !== -1) {
+          filas[i].style.display = "";
+        } else {
+          filas[i].style.display = "none";
+        }
+      }
+    };
+  }
   // ── 5. FUNCIONES AUXILIARES ────────────────────────────────
   function mostrarError(idElemento, textoError) {
     var span = document.getElementById(idElemento);

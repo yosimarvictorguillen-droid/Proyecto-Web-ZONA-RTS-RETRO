@@ -165,7 +165,10 @@
             La tabla resume datos representativos del tema y demuestra el uso correcto de etiquetas tabulares dentro del sitio.
           </p>
         </div>
-
+        <div class="field" style="margin-bottom: 16px;">
+            <label for="buscar-tabla">Buscar en la tabla</label>
+            <input type="text" id="buscar-tabla" placeholder="Escribe un juego, estilo, ambientación...">
+        </div>
         <div class="table-wrap">
           <table>
             <thead>
@@ -314,6 +317,7 @@
                 <label><input type="checkbox" name="interes[]" value="mods"> Mods</label>
                 <label><input type="checkbox" name="interes[]" value="guias"> Guías</label>
               </div>
+              <span id="error-interes" class="error-campo"></span>
             </div>
 
             <div class="field full">
